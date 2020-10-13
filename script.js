@@ -17,26 +17,32 @@ let appDate = {
   income: [],
   timeDate: time,
   savings: true,
+  chooseExpenses: function name(params) {
+    for (let i = 0; i < 2; i++) {
+      let a = prompt("ВВедите обязательную статью расходов в этом месяце", "");
+      let b = prompt("Во сколько это обойдется ?", "");
+      if (
+        typeof a === "string" &&
+        typeof a != null &&
+        typeof b != null &&
+        a != "" &&
+        b != "" &&
+        a.length < 50
+      ) {
+        console.log("done");
+        appDate.expenses[a] = b;
+      } else { 
+        i=i=1;
+      }
+  }
 };
 
 function chooseExpenses() {}
 
-for (let i = 0; i < 2; i++) {
-  let a = prompt("ВВедите обязательную статью расходов в этом месяце", "");
-  let b = prompt("Во сколько это обойдется ?", "");
-  if (
-    typeof a === "string" &&
-    typeof a != null &&
-    typeof b != null &&
-    a != "" &&
-    b != "" &&
-    a.length < 50
-  ) {
-    console.log("done");
-    appDate.expenses[a] = b;
-  } else {
-  }
+
 }
+
+
 appDate.moneyPerDay = (appDate.budjet / 30).toFixed();
 alert("Every day bujet : " + appDate.moneyPerDay);
 
